@@ -47,7 +47,7 @@ public class PostingController {
     }
 
 
-    @PostMapping
+    @PostMapping("/{id}")
     @ApiOperation(value = "글 등록", notes = "글 등록 API")
     @ApiImplicitParam(name = "dateTime", value = "dateTime", required = true, example = "시간")
     public Posting save(@RequestBody PostingDto requestData ) {
@@ -57,10 +57,7 @@ public class PostingController {
 
 
 
-
-
-
-    @PutMapping
+    @PutMapping("/{id}")
     @ApiOperation(value = "글 변경", notes = "글 조회 API")
     public List<Posting> update(@RequestBody PostingDto updateData) {
         log.info("Put - update() called");
@@ -69,7 +66,7 @@ public class PostingController {
     }
 
 
-    @DeleteMapping("/?id={id}")
+    @DeleteMapping("/{id}")
     @ApiOperation(value = "글 삭제", notes = "글 삭제 API")
     public List<Posting>delete(@RequestParam("id") Long id) {
         log.info(("Delete - delete() called"));
